@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+miLRT.Rcheck/
+miLRT*.tar.gz
+miLRT*.tgz
