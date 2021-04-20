@@ -13,7 +13,7 @@
 #' @import mice
 #' @export
 
-mi_Wald_wilson_hilferty <- function(model, null_model, df="Rubin1987") {
+mi_Wald_new <- function(model, null_model, df="Rubin1987") {
 
   m <- length(model$analyses)
   k <- length(model$analyses[[1]]$coef) - length(null_model$analyses[[1]]$coef)
@@ -30,7 +30,7 @@ mi_Wald_wilson_hilferty <- function(model, null_model, df="Rubin1987") {
       t(theta_hat[, j]) %*% solve(U_hat[, , j]) %*% theta_hat[, j]
   }  # vector of the 'm' Wald statistics
 
-  transformed_Walds <- wilson_hilferty(Wald_statistics, k)
+  transformed_Walds <- transform_to_std_norm(Wald_statistics, k)
   # the transformed variable is a standardized normal variable
   # with mean zero and variance one
 
